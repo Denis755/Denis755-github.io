@@ -1,0 +1,205 @@
+/* === Base === */
+:root{
+  --bg-card: rgba(88, 68, 99, 0.72);
+  --text-main: #e1cb8a;
+  --brand: #676082;
+  --accent: #f26a7e;
+}
+*{box-sizing:border-box}
+
+body {
+  color: var(--text-main);
+  font-family: Tahoma, Verdana, Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+  background-color: #fdd298;
+  background-image: url('/img/eiel-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: 1070px auto;
+  background-position: left top;
+}
+
+h1 a,
+h1 a:hover,
+h1 a:visited,
+h1 a:active{
+  color:inherit;
+  text-decoration:none;
+}
+h1 a:focus{ outline:none; }
+h1{
+  color: var(--brand);
+  font-size: 24px;
+  display: flex;
+  padding-top: 59px;
+  padding-right: max(30px, calc(100% - 700px));
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+h2{
+  font-weight:700;
+  font-size:1.25rem;
+}
+
+img {
+  width: 552px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 11px;
+}
+
+/* === Card look for major blocks === */
+.container > .header,
+.container > .content-row > *,
+.container > .footer{
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+/* === Layout (Flex only, no Grid) === */
+.container{
+  min-width:320px;
+  min-height:480px;
+
+  /* Page stack: header -> content -> footer */
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+  padding-top:104px;
+}
+
+/* Header */
+.header{
+  position: relative;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:16px;
+}
+
+/* Title badge preserved as .x */
+.x{
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  color: #ffcbee;
+  margin: 0;
+  padding: 4px 12px;
+  font-size: 24px;
+  border-radius: 9973px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Navbar kept */
+.navbar{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding: 1px 17px;
+}
+select, select option{
+  padding: 8px 16px;
+  border-radius: 9999px;
+  background-color: rgba(85, 60, 77, 0.9);
+  color: var(--accent);
+  cursor: pointer;
+  border: none;
+}
+
+/* Main content row of three columns */
+.content-row{
+  display:flex;
+  gap:10px;
+  /* sidebars fixed-ish width; center grows */
+  align-items: stretch;
+}
+
+/* Left sidebar */
+.left-top{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:flex-start;
+  color:aliceblue;
+
+  /* preferred width for sidebar */
+  flex: 0 0 320px;
+  min-width: 260px;
+}
+
+/* Center column that stacks .main and .main-top */
+.center-col{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  flex: 1 1 auto;        /* grow to fill */
+  min-width: 280px;
+}
+
+/* Main text */
+.main{
+  text-align: center;
+  font-size: 16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height: 220px;
+}
+
+/* Quote block */
+.main-top{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: aliceblue;
+  min-height: 90px;
+}
+
+/* Right sidebar */
+.right{
+  flex: 0 0 320px;
+  min-width: 260px;
+}
+
+/* Footer fixed under content */
+.footer{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  position: relative;
+}
+.footer > img{
+  max-width:36px;
+  height:auto;
+  position: absolute;
+  right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .content-row{
+    /* squeeze sidebars a bit */
+  }
+  .left-top, .right{
+    flex-basis: 280px;
+  }
+}
+
+@media (max-width: 900px){
+  /* Stack columns */
+  .content-row{
+    flex-direction:column;
+  }
+  .left-top, .right{
+    flex-basis:auto;
+    min-width:0;
+  }
+  .x{
+    position:static;
+    margin-left:auto;
+  }
+}

@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 10px;
   background-color: #fdd298;
-  background-image: url('/img/eiel-bg.jpg');
+  background-image: url('../img/eiel-bg.jpg');
   background-repeat: no-repeat;
   background-size: 1070px auto;
   background-position: left top;  /* или 0 0 */
