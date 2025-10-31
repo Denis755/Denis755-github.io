@@ -1,2 +1,2 @@
 # site.github.io
-Сайт про правила в покер
+Visual Novel Data Base
